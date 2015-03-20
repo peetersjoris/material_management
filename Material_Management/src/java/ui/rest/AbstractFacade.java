@@ -3,10 +3,6 @@ package ui.rest;
 import java.util.List;
 import javax.persistence.EntityManager;
 
-/**
- *
- * @author lucs
- */
 public abstract class AbstractFacade<T> {
 
     private Class<T> entityClass;
