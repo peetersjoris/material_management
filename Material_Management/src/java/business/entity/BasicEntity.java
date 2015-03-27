@@ -6,6 +6,9 @@
 package business.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,43 +19,24 @@ import javax.persistence.Id;
  * @author Joris
  */
 @Entity
-public class BasicEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class BasicEntity {
+       @Id
+    private String id = UUID.randomUUID().toString();
 
-    public Long getId() {
+    @Column(name = "CREATION_DATE")
+    private Date creationDate = new Date();
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public Date getCreationDate() {
+        return creationDate;
     }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof BasicEntity)) {
-            return false;
-        }
-        BasicEntity other = (BasicEntity) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "business.entity.BasicEntity[ id=" + id + " ]";
-    }
+    
     
 }
