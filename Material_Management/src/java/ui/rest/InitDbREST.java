@@ -18,7 +18,7 @@ import javax.ws.rs.Produces;
 @Path("init-db")
 public class InitDbREST {
 
-    @PersistenceContext(unitName = "RESORTPU")
+    //@PersistenceContext(unitName = "resortdb")
     private EntityManager em;
 
     /*@GET
